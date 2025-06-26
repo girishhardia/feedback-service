@@ -1,0 +1,11 @@
+services:
+  feedback:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - feedback_data:/data
+    restart: always
+
+volumes:
+  feedback_data:
