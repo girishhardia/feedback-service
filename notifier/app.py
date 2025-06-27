@@ -3,15 +3,19 @@ import smtplib
 import os
 from email.mime.text import MIMEText
 from dotenv import load_dotenv
+from flask_cors import CORS  #  new import
+
 
 # Load environment variables from .env
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)  # ✅ enable CORS for all routes
+
 
 @app.route('/notify', methods=['POST'])
 def notify():
-    data = request.json
+    data = request.get_json()
     name = data.get("name")
     message = data.get("message")
 
@@ -45,7 +49,7 @@ def notify():
         return {"status": "✅ Email sent"}, 200
     except Exception as e:
         print(f"❌ Email sending failed: {e}", flush=True)
-        return {"status": "❌ Email failed"}, 500
+        return {"status": "❌ Email failed"}, 50
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)

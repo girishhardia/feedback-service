@@ -1,20 +1,27 @@
+version: "3.8"
+
 services:
   feedback:
     build: .
-    ports:
-      - "80:80"
     volumes:
-      - feedback_data:/data
+      - feedback-data:/data
     restart: always
 
   notifier:
     build:
       context: ./notifier
     ports:
-      - "5000:5000"
-    restart: always
+      - "5000:5000"  # ✅ Expose to browser for now
     env_file:
       - ./notifier/.env
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"  # ✅ Public web access
+    restart: always
 
 volumes:
-  feedback_data:
+  feedback-data:
