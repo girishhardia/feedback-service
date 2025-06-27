@@ -28,55 +28,6 @@ This project is a **Docker-based microservice feedback system** that allows user
 
 ---
 
-## 📁 Project Structure
-
-```bash
-feedback-service/
-├── docker-compose.yml
-├── frontend/
-│   └── index.html
-├── notifier/
-│   ├── app.py
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   └── .env         # contains SMTP credentials
-├── feedback/
-│   ├── app.py
-│   └── Dockerfile
-```
-
----
-
-# 📨 Feedback Microservice App (Dockerized with Email Alerts)
-
-This project is a **Docker-based microservice feedback system** that allows users to submit feedback through a web interface. It stores the feedback locally and sends email notifications using AWS SES.
-
-> ✅ Built with: Flask, Nginx, Docker Compose, EC2, SES
-
----
-
-## 🔧 Tech Stack
-
-| Component   | Tech Used         | Description                            |
-|-------------|-------------------|----------------------------------------|
-| Frontend    | HTML + Nginx      | Static feedback form UI                |
-| Notifier    | Flask + SMTP      | Sends feedback via email using SES     |
-| Feedback DB | Python + SQLite   | Logs feedback messages locally         |
-| Orchestration | Docker Compose | Connects and runs all services         |
-| Cloud       | AWS EC2 + SES     | Hosted backend and SMTP mailer         |
-
----
-
-## 🌐 Features
-
-- 📝 Submit feedback via browser
-- 📬 Sends emails via AWS SES
-- 🗃️ Logs feedback data into a volume
-- 🚀 Deployed on Amazon Linux EC2
-- 🐳 Fully Dockerized: `docker-compose` ready
-
----
-
 ## 🚀 How to Run
 
 ### 1. 🐳 Install Docker (if not already):
